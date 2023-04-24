@@ -1,6 +1,9 @@
 package pro.hexa.study.backend.todo.dto;
 
 import java.util.List;
+import java.util.stream.Collectors;
+
+import pro.hexa.study.backend.todo.domain.ParentTodo;
 import pro.hexa.study.backend.todo.utils.GetUtils;
 
 /*
@@ -23,4 +26,31 @@ public class TodoResponse {
     public int getTotalCount() {
         return GetUtils.getIntegerAsInt(this.totalCount);
     }
+    public TodoResponse(List<ParentTodo> entities){
+        List<TodoInquiryDto> todoList= changeIntoTodoInquiryDto(entities);
+        this.todoList = todoList;
+
+
+        int count_completed = 0;
+        for(int i= 0; i < todoList.size(); i++){
+            if(todoList.get(i).isCompleteYn()){
+                count_completed += 1;
+            }
+        }
+        this.completedCount = count_completed;
+        int count_total = 0;
+        for(int i = 0; i < todoList.size(); i++){
+            for(int j = 0; j < todoList.get(i).getDetailContents().size(); j++){
+                count_total += 1;
+            }
+        }
+        this.totalCount = count_total;
+
+    }
+    public List<TodoInquiryDto> changeIntoTodoInquiryDto(List<ParentTodo> entities){
+        return entities.stream().map(parentTodo -> new TodoInquiryDto(parentTodo.getIdList(),parentTodo.getTitle(),parentTodo.getContent(),parentTodo.getSubTitles(),
+                parentTodo.getDetailContents(), parentTodo.getTimeToTakeInMinutes(),parentTodo.getStartAt(),
+                parentTodo.isCompleteYn())).collect(Collectors.toList());
+    }
+
 }

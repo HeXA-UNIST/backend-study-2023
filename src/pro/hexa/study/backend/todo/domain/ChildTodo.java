@@ -14,12 +14,18 @@ public class ChildTodo extends Todo {
     public ParentTodo getParent() {
         return this.parent;
     }
+    public void rmParent(){
+        this.parent = null;
+    }
 
     public void setParentTodo(ParentTodo parent) {
+        this.parent = parent;
         // todo: parentTodo를 지정하고, parentTodo의 details에 이 childTodo가 없으면 details에도 추가.
     }
 
     void completeTodo() {
+        this.completeYn = true;
         // todo: 이 childTodo의 완료 처리
     }
+
 }

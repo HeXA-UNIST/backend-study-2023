@@ -23,4 +23,41 @@ public abstract class Todo {
         this.startAt = startAt;
         this.completeYn = completeYn;
     }
+
+    public Long getId(){
+        return this.id;
+    }
+    public String getTitle(){
+        return this.title;
+    }
+    public String getContent(){
+        return this.content;
+    }
+
+    public Short getTimeToTakeInMinutes(){
+        return this.timeToTakeInMinutes;
+    }
+    public LocalDateTime getStartAt(){
+        return this.startAt;
+    }
+    public boolean isCompleteYn(){
+        return this.completeYn;
+    }
+    public void changeTitle(String newTitle){
+        this.title = newTitle;
+    }
+    public void changeDetail(String newDetail){
+        this.content = newDetail;
+    }
+    public void changeStartAt(LocalDateTime newStartAt){
+        this.startAt = newStartAt;
+    }
+    public void changeTimeToTakeInMinutes(LocalDateTime newEndAt){
+        this.timeToTakeInMinutes = (short)(newEndAt.getMinute() - this.startAt.getMinute());
+    }
+    public void changeCompleteYn(boolean newCompleteYn){
+        this.completeYn = newCompleteYn;
+    }
+
+
 }
