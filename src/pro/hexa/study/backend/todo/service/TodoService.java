@@ -38,8 +38,6 @@ public class TodoService {
      */
     public TodoResponse getTodoResponse() {
         List<TodoInquiryDto> todoInquiryDtoList = new ArrayList<>();
-
-        // ParentTodo 객체와 이에 대응하는 ChildTodo 객체들을 조회합니다.
         for (Todo todo : todoEntities) {
             if (todo instanceof ParentTodo) {
                 ParentTodo parentTodo = (ParentTodo) todo;
