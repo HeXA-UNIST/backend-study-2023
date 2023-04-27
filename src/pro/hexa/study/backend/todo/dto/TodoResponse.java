@@ -8,6 +8,16 @@ import pro.hexa.study.backend.todo.utils.GetUtils;
  */
 public class TodoResponse {
 
+    public TodoResponse(List<TodoInquiryDto> todoList){
+        this.totalCount=todoList.size();
+        this.completedCount=0;
+        for(TodoInquiryDto todoInquiryDto:todoList ){
+            if (todoInquiryDto.getCompleteYn()){
+                this.completedCount+=1;
+            }
+        }
+    }
+
     private List<TodoInquiryDto> todoList;
     private Integer completedCount; // 완료한 todo객체 개수
     private Integer totalCount; // 전체 todo객체 개수

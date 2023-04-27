@@ -8,6 +8,18 @@ import java.util.List;
  */
 public class TodoInquiryDto {
 
+    public TodoInquiryDto(List<Long> id, String title, String content, List<String> subTitles, List<String> detailContents,
+        Short remainingTime, LocalDateTime startAt, boolean completeYn){
+        this.id=id;
+        this.title=title;
+        this.content=content;
+        this.subTitles=subTitles;
+        this.detailContents=detailContents;
+        this.remainingTime=remainingTime;
+        this.startAt=startAt;
+        this.completeYn=completeYn;
+    }
+
     private List<Long> id; // 맨 첫 id가 parent, 그 뒤로 따라오는건 child
     private String title; // 제목
     private String content; // 상세 내용
@@ -16,4 +28,8 @@ public class TodoInquiryDto {
     private Short remainingTime; // 예상되는 남은 시간(분)
     private LocalDateTime startAt; // 시작 예정시간
     private boolean completeYn; // 완료 여부
+
+    public boolean getCompleteYn(){
+        return this.completeYn;
+    }
 }
