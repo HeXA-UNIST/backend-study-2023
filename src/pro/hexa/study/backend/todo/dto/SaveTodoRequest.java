@@ -16,4 +16,5 @@ public class SaveTodoRequest {
     public List<TodoUpdateDto> getTodoUpdateList(){
         return this.todoUpdateList;
     }
+
 }

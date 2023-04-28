@@ -95,5 +95,13 @@ public class TodoService {
                 this.todoEntities.add(newParentTodo);
             }
         }
+        for (Long todoDeleteId : request.getTodoDeleteIds()) {
+            IntStream.range(0,todoEntities.size()).forEach(i -> {
+                if(todoEntities.get(i).getId()==todoDeleteId){
+                    todoEntities.remove(i);
+                    return;
+                }
+            });
+        }
     }
 }
