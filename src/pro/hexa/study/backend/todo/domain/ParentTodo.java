@@ -44,19 +44,19 @@ public class ParentTodo extends Todo {
 
     public void completeTodo(ChildTodo childTodo) {
         // 입력 받은 childTodo의 완료 처리와 동시에 parentTodo의 모든 details 내에 있는 todo가 완료 되었으면 parentTodo도 완료 처리.
-        int index=getDetailsIndexbyChildTodo(childTodo);
+        int index = getDetailsIndexbyChildTodo(childTodo);
 
         details.get(index).completeTodo();
 
-        boolean isAllCompleted=details.stream()
+        boolean isAllCompleted = details.stream()
             .allMatch(detail -> detail.completeYn);
-        if(isAllCompleted){
-            this.completeYn=true;
+        if (isAllCompleted) {
+            this.completeYn = true;
         }
 
     }
 
-    public void updateTodo(String title, String content, Short timeToTakeInMinutes, LocalDateTime startAt, boolean completeYn){
+    public void updateTodo(String title, String content, Short timeToTakeInMinutes, LocalDateTime startAt, boolean completeYn) {
         this.id = TodoService.ID_COUNT++;
         this.title = title;
         this.content = content;
@@ -65,7 +65,7 @@ public class ParentTodo extends Todo {
         this.completeYn = completeYn;
     }
 
-    public int getDetailsIndexbyChildTodo(ChildTodo detail){
+    public int getDetailsIndexbyChildTodo(ChildTodo detail) {
         int index = IntStream.range(0, details.size())
             .filter(i -> Objects.equals(details.get(i), detail))
             .findFirst()

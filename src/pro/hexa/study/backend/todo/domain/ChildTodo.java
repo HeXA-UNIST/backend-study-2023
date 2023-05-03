@@ -17,15 +17,15 @@ public class ChildTodo extends Todo {
 
     public void setParentTodo(ParentTodo parent) {
         // parentTodo를 지정하고, parentTodo의 details에 이 childTodo가 없으면 details에도 추가.
-        this.parent=parent;
-        int DoesParentHaveMe=parent.getDetailsIndexbyChildTodo(this);
-        if(DoesParentHaveMe==-1){
+        this.parent = parent;
+        int DoesParentHaveMe = parent.getDetailsIndexbyChildTodo(this);
+        if (DoesParentHaveMe == -1) {
             parent.addDetailTodo(this);
         }
     }
 
     void completeTodo() {
         // 이 childTodo의 완료 처리
-        this.completeYn=true;
+        this.completeYn = true;
     }
 }

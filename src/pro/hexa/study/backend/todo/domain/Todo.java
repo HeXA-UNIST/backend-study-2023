@@ -24,22 +24,27 @@ public abstract class Todo {
         this.completeYn = completeYn;
     }
 
-    public Long getId(){
+    public Long getId() {
         return this.id;
     }
-    public String getTitle(){
+
+    public String getTitle() {
         return this.title;
     }
-    public String getContent(){
+
+    public String getContent() {
         return this.content;
     }
-    public Short getTimeToTakeInMinutes(){
+
+    public Short getTimeToTakeInMinutes() {
         return this.timeToTakeInMinutes;
     }
-    public LocalDateTime getStartAt(){
+
+    public LocalDateTime getStartAt() {
         return this.startAt;
     }
-    public boolean getCompleteYn(){
+
+    public boolean getCompleteYn() {
         return this.completeYn;
     }
 

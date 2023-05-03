@@ -13,7 +13,8 @@ public class SaveTodoRequest {
     public List<Long> getTodoDeleteIds() {
         return this.todoDeleteIds;
     }
-    public List<TodoUpdateDto> getTodoUpdateList(){
+
+    public List<TodoUpdateDto> getTodoUpdateList() {
         return this.todoUpdateList;
     }
 
