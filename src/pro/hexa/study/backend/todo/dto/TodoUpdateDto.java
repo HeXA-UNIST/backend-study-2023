@@ -13,4 +13,29 @@ public class TodoUpdateDto {
     private LocalDateTime startAt; // 시작 예정시간
     private LocalDateTime endAt; // 완료 예정시간
     private boolean completeYn; // 완료 여부
+
+    public Long getId() {
+        return this.id;
+    }
+
+    public String getTitle() {
+        return this.title;
+    }
+
+    public String getDetail() {
+        return this.detail;
+    }
+
+    public LocalDateTime getStartAt() {
+        return this.startAt;
+    }
+
+    public LocalDateTime getEndAt() {
+        return this.endAt;
+    }
+
+    public boolean getCompleteYn() {
+        return this.completeYn;
+    }
+
 }
