@@ -7,10 +7,22 @@ import pro.hexa.study.backend.todo.utils.GetUtils;
  * 할 일 목록 처리 등을 위한 객체
  */
 public class TodoResponse {
-
     private List<TodoInquiryDto> todoList;
-    private Integer completedCount; // 완료한 todo객체 개수
-    private Integer totalCount; // 전체 todo객체 개수
+    private int completedCount;
+    private int totalCount;
+
+    // Setter 메서드
+    public void setTodoList(List<TodoInquiryDto> todoList) {
+        this.todoList = todoList;
+    }
+
+    public void setCompletedCount(int completedCount) {
+        this.completedCount = completedCount;
+    }
+
+    public void setTotalCount(int totalCount) {
+        this.totalCount = totalCount;
+    }
 
     public List<TodoInquiryDto> getTodoList() {
         return this.todoList;
